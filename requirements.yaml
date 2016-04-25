@@ -1,0 +1,34 @@
+# Note: due to security concerns we prefer using git hashes than ansible versions.
+
+# Our fork of security, can be synced when this is merged: https://github.com/geerlingguy/ansible-role-security/pull/16
+- name: geerlingguy.security
+  version: 'origin/jbzdak/notify-mail'
+  src: https://github.com/open-craft/ansible-role-security
+
+- name: kamaln7.swapfile
+  src: https://github.com/kamaln7/ansible-swapfile
+  version: 8eb0e18d90a7f25b6658fbf56bcba01b84a664fc
+
+- src: https://github.com/open-craft/ansible-tarsnap
+  name: pmbauer.tarsnap
+  version: d96b1e69ae6b930e0841d7b025a3070c408a23
+
+- name: backup-to-tarsnap
+  src: https://github.com/open-craft/ansible-backup-to-tarsnap
+  version: 'origin/jbzdak/tasrsnap'
+
+- name: common-server
+  src: https://github.com/open-craft/ansible-common-server
+  version: 'origin/jbzdak/common-server'
+
+- name: configure-apt
+  src: https://github.com/open-craft/ansible-configure-apt
+  version: 'origin/jbzdak/configure-apt'
+
+- name: sanity-checker
+  src: https://github.com/open-craft/ansible-sanity-checker/
+  version: 'origin/jbzdak/sanity-checker'
+
+- name: forward-server-mail
+  src: https://github.com/open-craft/ansible-forward-server-mail
+  version: 'origin/jbzdak/forward-mail'
