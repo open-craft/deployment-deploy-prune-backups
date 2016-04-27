@@ -10,6 +10,9 @@
     - "/etc/tarsnap"
     - "/var/cache"
 
+# Note: tarsnapper requires keys to end with a newline
+# which are stripped from ansible variables.
+# tarsnap.key template exists only to add that newline.
 - name: upload keys
   template:
     src: tarsnap.key
