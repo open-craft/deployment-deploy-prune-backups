@@ -9,36 +9,16 @@ TARSNAPPER_CONF: /etc/tarsnapper.yml
 TARSNAPPER_VERSION: git+https://github.com/open-craft/tarsnapper@jbzdak/tarsnapper-extensions
 
 keys_to_upload:
-  - name: "dalite-logs"
-    keypath: "{{ DALITE_LOGROTATE_PATH }}"
-    key: "{{ DALITE_LOGROTATE_KEY }}"
-    cache: "{{ DALITE_LOGROTATE_CACHE }}"
-  - name: "dalite-swift"
-    keypath: "{{ DALITE_SWIFT_PATH }}"
-    key: "{{ DALITE_SWIFT_KEY }}"
-    cache: "{{ DALITE_SWIFT_CACHE }}"
   - name: "mysql-backup"
-    keypath: "{{ MYSQL_BACKUP_PATH }}"
-    key: "{{ MYSQL_BACKUP_KEY }}"
-    cache: "{{ MYSQL_BACKUP_CACHE }}"
+    keypath: "/etc/keyfile"
+    key: "{{ VARIABLE_CONTAINING_TARSNAP_KEY }}"
+    cache: "/var/cache/tarsnap"
 
 TARSNAPPER_CONFIG_CONTENTS:
   jobs:
-    dalite-logs:
+    mysql-backup:
       sources: []
-      target: dalite-logs-$date
-      keyfile: "{{ DALITE_LOGROTATE_PATH }}"
-      cachedir: "{{ DALITE_LOGROTATE_CACHE }}"
-      deltas: 1d 30d 360d 18000d
-    dalite-swift:
-      sources: []
-      target: dalite-swift-backup-$date
-      keyfile: "{{ DALITE_SWIFT_PATH }}"
-      cachedir: "{{ DALITE_SWIFT_CACHE }}"
-      deltas: 1h 1d 7d 30d 360d 18000d
-    mysql:
-      sources: []
-      target: mysql.opencraft.com-$date
-      keyfile: "{{ MYSQL_BACKUP_PATH }}"
-      cachedir: "{{ MYSQL_BACKUP_CACHE }}"
+      target: mysql-$date
+      keyfile: "/etc/keyfile"
+      cachedir: "/var/cache/tarsnap"
       deltas: 1h 1d 7d 30d 360d 18000d

@@ -2,5 +2,5 @@
 
 /usr/local/bin/tarsnap --fsck --keyfile "{{ item.keypath }}" \
 --cachedir "{{ item.cache }}" && \
-tarsnapper --config /etc/tarsnapper.yml  expire dalite-logs "{{ item.name }}"
+tarsnapper --config /etc/tarsnapper.yml expire "{{ item.name }}"
 
