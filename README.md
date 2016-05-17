@@ -16,7 +16,7 @@ How to add new backup to be pruned
 1. Get master key
 2. Save master key to private.yml
 3. Save cache directory and file for tarsnap key in the private yaml 
-4. Add new entry to `jobs`
+4. Add new entry to `TARSNAPPER_JOBS`
 
 How to prune backups
 --------------------

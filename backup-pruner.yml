@@ -21,7 +21,7 @@
     group: "root"
     mode: "400"
   no_log: true
-  with_items: "{{ jobs }}"
+  with_items: "{{ TARSNAPPER_JOBS }}"
 
 - name: create cache dirs
   file:
@@ -31,7 +31,7 @@
     mode: "700"
     state: directory
   no_log: true
-  with_items: "{{ jobs }}"
+  with_items: "{{ TARSNAPPER_JOBS }}"
 
 # NOTE: Pip doesn't work with tarsnapper
 - name: install tarsnapper
@@ -45,4 +45,4 @@
     group: "root"
     mode: "700"
   no_log: true
-  with_items: "{{ jobs }}"
+  with_items: "{{ TARSNAPPER_JOBS }}"

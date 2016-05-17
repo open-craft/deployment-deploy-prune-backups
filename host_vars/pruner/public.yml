@@ -8,7 +8,7 @@ TARSNAPPER_CONF: /etc/tarsnapper.yml
 # and code winds up on PIP
 TARSNAPPER_VERSION: git+https://github.com/miracle2k/tarsnapper.git@0fedc22bcf8863fecb78c290a42dc28de96363b2
 
-jobs:
+TARSNAPPER_JOBS:
   - name: "mysql-backup"
     keypath: "/etc/keyfile"
     key: "{{ VARIABLE_CONTAINING_TARSNAP_KEY }}"
