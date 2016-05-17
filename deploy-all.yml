@@ -1,0 +1,14 @@
+---
+- name: Set up servers
+  hosts: all
+  become: true
+  roles:
+    - name: common-server
+      COMMON_SERVER_NO_BACKUPS: true
+    - name: 'pmbauer.tarsnap'
+
+- name: Install backup pruner
+  hosts: all
+  become: true
+  tasks:
+    - include: backup-pruner.yml
