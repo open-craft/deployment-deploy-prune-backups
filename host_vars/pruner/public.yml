@@ -6,19 +6,12 @@ TARSNAPPER_CONF: /etc/tarsnapper.yml
 
 # Can be changed to normal tarsnapper once we merge this branch
 # and code winds up on PIP
-TARSNAPPER_VERSION: git+https://github.com/open-craft/tarsnapper@jbzdak/tarsnapper-extensions
+TARSNAPPER_VERSION: git+https://github.com/miracle2k/tarsnapper.git@0fedc22bcf8863fecb78c290a42dc28de96363b2
 
-keys_to_upload:
+TARSNAPPER_JOBS:
   - name: "mysql-backup"
     keypath: "/etc/keyfile"
     key: "{{ VARIABLE_CONTAINING_TARSNAP_KEY }}"
     cache: "/var/cache/tarsnap"
-
-TARSNAPPER_CONFIG_CONTENTS:
-  jobs:
-    mysql-backup:
-      sources: []
-      target: mysql-$date
-      keyfile: "/etc/keyfile"
-      cachedir: "/var/cache/tarsnap"
-      deltas: 1h 1d 7d 30d 360d 18000d
+    target: mysql-$date
+    deltas: 1h 1d 7d 30d 360d 18000d

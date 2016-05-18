@@ -16,14 +16,15 @@ How to add new backup to be pruned
 1. Get master key
 2. Save master key to private.yml
 3. Save cache directory and file for tarsnap key in the private yaml 
-4. Add new entry to `keys_to_upload`
-5. Add new entry to `TARSNAPPER_CONFIG_CONTENTS.jobs`
-6. Keep in mind that `keys_to_upload[0].name` must correspond to a key of 
-   `TARSNAPPER_CONFIG_CONTENTS.jobs`. That is if there is an entry with `name` foo
-   there needs to be `TARSNAPPER_CONFIG_CONTENTS.jobs.name`
+4. Add new entry to `TARSNAPPER_JOBS`
 
 How to prune backups
 --------------------
 
 1. Login to the instance 
-2. `sudo prune-{{backup.name}}.sh`, for example  
+2. Pruning scripts are named `tarsnap-{{ job.name }}.sh`
+3. Following operations are supported: 
+   a. List archives `sudo tarsnap-{{ job.name }}.sh list`
+   b. Expire archives `sudo tarsnap-{{ job.name }}.sh. expire`
+   c. Expire archives (dry run) `tarsnap-{{ job.name }}.sh expire --dry-run`
+   
