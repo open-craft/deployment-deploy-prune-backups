@@ -22,9 +22,9 @@ How to prune backups
 --------------------
 
 1. Login to the instance 
-2. Pruning scripts are named `tarsnap-{{job.name}}.sh`
+2. Pruning scripts are named `tarsnap-{{ job.name }}.sh`
 3. Following operations are supported: 
-   a. List archives `sudo tarsnap-job.sh list`
-   b. Expire archives `sudo tarsnap-job.sh. expire`
-   c. Expire archives (dry run) `tarsnap-job.sh expire --dry-run`
+   a. List archives `sudo tarsnap-{{ job.name }}.sh list`
+   b. Expire archives `sudo tarsnap-{{ job.name }}.sh. expire`
+   c. Expire archives (dry run) `tarsnap-{{ job.name }}.sh expire --dry-run`
    
