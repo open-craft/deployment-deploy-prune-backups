@@ -52,6 +52,22 @@
   no_log: true
   with_items: "{{ TARSNAPPER_JOBS }}"
 
+- name: create log dir
+  file:
+    name: "{{ LOG_DIR }}"
+    owner: "root"
+    group: "root"
+    mode: "700"
+    state: directory
+
+- name: add logrotate for individual pruner logs
+  template:
+    src: "logrotate.conf"
+    dest: "/etc/logrotate.d/backup-pruner"
+    owner: "root"
+    group: "root"
+    mode: "644"
+
 - name: add parallel pruner script
   template:
     src: "backup-pruner.sh"

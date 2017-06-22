@@ -12,6 +12,7 @@
   roles:
     - name: common-server
       COMMON_SERVER_NO_BACKUPS: true
+    - forward-server-mail
     - name: 'pmbauer.tarsnap'
 
 - name: Install backup pruner

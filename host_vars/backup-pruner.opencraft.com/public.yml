@@ -3,8 +3,10 @@ FORWARD_MAIL_RELAY_MAIL_TO: "ops@example.com"
 FORWARD_MAIL_SMTP_FROM: "{{ FORWARD_MAIL_RELAY_MAIL_TO }}"
 
 TARSNAPPER_CONF: /etc/tarsnapper.yml
-JOB_LOG: /var/log/backup_pruner.log
+JOB_LOG: /var/log/backup-pruner-summary.log
+LOG_DIR: /var/log/backup-pruner
 BACKUP_PRUNER_SCRIPT: /usr/local/sbin/backup-pruner.sh
+BACKUP_PRUNER_SNITCH: https://nosnch.in/5e416d313e
 
 # Can be changed to normal tarsnapper once we merge this branch
 # and code winds up on PIP
