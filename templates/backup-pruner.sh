@@ -24,7 +24,7 @@ status=$?
 
 if [ $status -eq 0 ]
 then
-  curl {{ BACKUP_PRUNER_SNITCH }}
+  curl -s -S {{ BACKUP_PRUNER_SNITCH }} > /dev/null
 fi
 
 exit $status
